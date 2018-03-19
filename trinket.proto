@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package trinket;
+
+service Gem {
+  rpc gem(Request) returns (Response);
+}
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  repeated Gems gems = 1;
+}
+
+message Gems {
+  uint32 author_count = 1;
+  repeated string authors = 2;
+  string description = 3;
+  uint64 epoch_time = 4;
+  string homepage = 5;
+  repeated string licenses = 6;
+  string name = 7;
+  string summary = 8;
+  Version version = 9;
+}
+
+message Version {
+  uint32 major = 1;
+  uint32 minor = 2;
+  uint32 teeny = 3;
+  uint32 patch = 4;
+  string string = 5;
+}
