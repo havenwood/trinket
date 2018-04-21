@@ -1,1 +1,1 @@
-grpc_tools_ruby_protoc --ruby_out=lib --grpc_out=lib trinket.proto
+protoc --plugin=protoc-gen-grpc="$(command -v grpc_ruby_plugin)" --ruby_out=lib --grpc_out=lib trinket.proto
