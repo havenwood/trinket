@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package trinket;
 
-service Gem {
+service Gems {
   rpc gem(Request) returns (Response);
 }
 
@@ -11,10 +11,10 @@ message Request {
 }
 
 message Response {
-  repeated Gems gems = 1;
+  repeated Gem gems = 1;
 }
 
-message Gems {
+message Gem {
   uint32 author_count = 1;
   repeated string authors = 2;
   string description = 3;

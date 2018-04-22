@@ -5,14 +5,14 @@ require 'grpc'
 require 'trinket_pb'
 
 module Trinket
-  module Gem
+  module Gems
     class Service
 
       include GRPC::GenericService
 
       self.marshal_class_method = :encode
       self.unmarshal_class_method = :decode
-      self.service_name = 'trinket.Gem'
+      self.service_name = 'trinket.Gems'
 
       rpc :gem, Request, Response
     end

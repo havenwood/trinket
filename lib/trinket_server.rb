@@ -1,6 +1,6 @@
 require 'trinket_services_pb'
 
-class Trinket::Server < Trinket::Gem::Service
+class Trinket::Server < Trinket::Gems::Service
   def gem request, _
     matching_gems = Gem::Specification.latest_specs.select do |spec|
       spec.name.match? Regexp.new request.name
@@ -8,7 +8,7 @@ class Trinket::Server < Trinket::Gem::Service
       segments = %i[major minor teeny patch].zip(spec.version.segments).select { |_, v| v }.to_h
       version = Trinket::Version.new string: spec.version.to_s, **segments
 
-      Trinket::Gems.new(
+      Trinket::Gem.new(
         author_count: spec.authors.size,
         authors: spec.authors,
         description: spec.description.to_s,

@@ -8,9 +8,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :name, :string, 1
   end
   add_message "trinket.Response" do
-    repeated :gems, :message, 1, "trinket.Gems"
+    repeated :gems, :message, 1, "trinket.Gem"
   end
-  add_message "trinket.Gems" do
+  add_message "trinket.Gem" do
     optional :author_count, :uint32, 1
     repeated :authors, :string, 2
     optional :description, :string, 3
@@ -33,6 +33,6 @@ end
 module Trinket
   Request = Google::Protobuf::DescriptorPool.generated_pool.lookup("trinket.Request").msgclass
   Response = Google::Protobuf::DescriptorPool.generated_pool.lookup("trinket.Response").msgclass
-  Gems = Google::Protobuf::DescriptorPool.generated_pool.lookup("trinket.Gems").msgclass
+  Gem = Google::Protobuf::DescriptorPool.generated_pool.lookup("trinket.Gem").msgclass
   Version = Google::Protobuf::DescriptorPool.generated_pool.lookup("trinket.Version").msgclass
 end
