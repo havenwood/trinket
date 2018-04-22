@@ -3,23 +3,8 @@
 
 $LOAD_PATH.prepend File.expand_path '../lib', __dir__
 
-require 'bundler/setup'
-require 'grpc'
 require 'pry'
-require 'singleton'
-require 'trinket_services_pb'
-
-class Trinket::Client
-  include Singleton
-
-  def initialize
-    @channel = Trinket::Gem::Stub.new 'localhost:50051', :this_channel_is_insecure
-  end
-
-  def gem name:
-    @channel.gem Trinket::Request.new name: name
-  end
-end
+require 'trinket_client'
 
 response = Trinket::Client.instance.gem name: ARGV.first.to_s
 gems = response.gems
