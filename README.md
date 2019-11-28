@@ -9,17 +9,23 @@ bundle
 ## Generate Protos
 
 ```sh
-grpc_tools_ruby_protoc --ruby_out=lib --grpc_out=lib trinket.proto
+rake
+```
+
+## Clean Up Protos
+
+```sh
+rake clean
 ```
 
 ## Run the Server
 
 ```sh
-bin/trinket_server
+rake server
 ```
 
 ## Run the Client
 
 ```sh
-bin/trinket_cliet
+rake client
 ```
