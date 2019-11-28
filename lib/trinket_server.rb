@@ -11,21 +11,21 @@ module Trinket
         spec.name.match? Regexp.new request.name
       end
 
-      Trinket::Response.new gems: gems(specs)
+      Trinket::Response.new gems: gems(specs: specs)
     end
 
     private
 
-    def gems(specs)
+    def gems(specs:)
       specs.map do |spec|
         segments = VERSION_PARTS.zip(spec.version.segments).to_h.compact
         version = Trinket::Version.new string: spec.version.to_s, **segments
 
-        trinket_gem(spec, version)
+        trinket_gem(spec: spec, version: version)
       end
     end
 
-    def trinket_gem(spec, version)
+    def trinket_gem(spec:, version:)
       Trinket::Gem.new(
         author_count: spec.authors.size,
         authors: spec.authors,
