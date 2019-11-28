@@ -5,7 +5,7 @@ require 'trinket_services_pb'
 module Trinket
   class Server < Trinket::Gems::Service
     def gem(request, _)
-      matching_gems = Gem::Specification.latest_specs.select do |spec|
+      matching_gems = ::Gem::Specification.latest_specs.select do |spec|
         spec.name.match? Regexp.new request.name
       end
 
