@@ -1,1 +1,25 @@
-protoc --plugin=protoc-gen-grpc="$(command -v grpc_ruby_plugin)" --ruby_out=lib --grpc_out=lib trinket.proto
+# Trinket
+
+## Install
+
+```sh
+bundle
+```
+
+## Generate Protos
+
+```sh
+grpc_tools_ruby_protoc --ruby_out=lib --grpc_out=lib trinket.proto
+```
+
+## Run the Server
+
+```sh
+bin/trinket_server
+```
+
+## Run the Client
+
+```sh
+bin/trinket_cliet
+```
