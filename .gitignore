@@ -2,3 +2,4 @@
 /.bundle/
 .DS_Store
 .ruby-version
+/lib/*_pb.rb
